@@ -1,0 +1,44 @@
+digraph "token.c.166t.loopdone" {
+overlap=false;
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	subgraph cluster_0_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_0_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1063004407\<bb\ 3\>:\l\
+|#\ ivtmp_12\ =\ PHI\ \<110(2),\ ivtmp_11(3)\>\l\
+|ivtmp_11\ =\ ivtmp_12\ -\ 1;\l\
+|if\ (ivtmp_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [99.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [1.00%]\l\
+}"];
+
+	}
+	fn_0_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10737418\<bb\ 2\>:\l\
+|saved_stack.1_5\ =\ __builtin_stack_save\ ();\l\
+}"];
+
+	fn_0_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10737418\<bb\ 4\>:\l\
+|__builtin_stack_restore\ (saved_stack.1_5);\l\
+|return\ 0;\l\
+}"];
+
+	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_2:s -> fn_0_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_3:s -> fn_0_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[99%]"];
+	fn_0_basic_block_3:s -> fn_0_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[1%]"];
+	fn_0_basic_block_4:s -> fn_0_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_0:s -> fn_0_basic_block_1:n [style="invis",constraint=true];
+}
+}

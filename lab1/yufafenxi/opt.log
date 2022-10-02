@@ -1,0 +1,237 @@
+; ModuleID = 'main.ll'
+source_filename = "main.c"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@n = dso_local local_unnamed_addr constant i32 20, align 4
+
+; Function Attrs: noinline norecurse nounwind readnone uwtable
+define dso_local i32 @main() local_unnamed_addr #0 {
+  ret i32 0
+}
+
+attributes #0 = { noinline norecurse nounwind readnone uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+
+!llvm.module.flags = !{!0}
+!llvm.ident = !{!1}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{!"clang version 10.0.0-4ubuntu1 "}
+===-------------------------------------------------------------------------===
+                      ... Pass execution timing report ...
+===-------------------------------------------------------------------------===
+  Total Execution Time: 0.0271 seconds (0.0264 wall clock)
+
+   ---User Time---   --System Time--   --User+System--   ---Wall Time---  --- Name ---
+   0.0020 ( 11.6%)   0.0000 (  0.0%)   0.0020 (  7.4%)   0.0020 (  7.6%)  Simplify the CFG
+   0.0014 (  8.2%)   0.0000 (  0.0%)   0.0014 (  5.2%)   0.0014 (  5.1%)  Simplify the CFG #5
+   0.0006 (  3.7%)   0.0000 (  0.0%)   0.0006 (  2.4%)   0.0007 (  2.5%)  Print Module IR
+   0.0000 (  0.0%)   0.0004 (  4.2%)   0.0004 (  1.5%)   0.0004 (  1.5%)  Interprocedural Sparse Conditional Constant Propagation
+   0.0015 (  8.5%)   0.0000 (  0.1%)   0.0015 (  5.5%)   0.0004 (  1.4%)  LCSSA Verifier
+   0.0003 (  1.9%)   0.0000 (  0.0%)   0.0003 (  1.2%)   0.0004 (  1.4%)  Lazy Branch Probability Analysis #4
+   0.0000 (  0.0%)   0.0004 (  3.7%)   0.0004 (  1.3%)   0.0003 (  1.3%)  MemCpy Optimization
+   0.0003 (  1.9%)   0.0000 (  0.0%)   0.0003 (  1.2%)   0.0003 (  1.3%)  Simplify the CFG #8
+   0.0003 (  1.5%)   0.0001 (  0.5%)   0.0003 (  1.2%)   0.0003 (  1.2%)  SROA
+   0.0003 (  2.0%)   0.0000 (  0.0%)   0.0003 (  1.3%)   0.0003 (  1.1%)  Lazy Block Frequency Analysis #9
+   0.0003 (  1.6%)   0.0000 (  0.0%)   0.0003 (  1.0%)   0.0003 (  1.1%)  Aggressive Dead Code Elimination
+   0.0002 (  1.2%)   0.0001 (  0.7%)   0.0003 (  1.0%)   0.0003 (  1.0%)  Early CSE
+   0.0003 (  1.5%)   0.0000 (  0.0%)   0.0003 (  0.9%)   0.0003 (  1.0%)  Loop Vectorization
+   0.0002 (  1.4%)   0.0000 (  0.0%)   0.0002 (  0.9%)   0.0002 (  0.9%)  Block Frequency Analysis #2
+   0.0002 (  1.3%)   0.0000 (  0.1%)   0.0002 (  0.9%)   0.0002 (  0.9%)  Dominator Tree Construction #7
+   0.0002 (  1.4%)   0.0000 (  0.0%)   0.0002 (  0.9%)   0.0002 (  0.9%)  Scalar Evolution Analysis
+   0.0000 (  0.2%)   0.0001 (  0.6%)   0.0001 (  0.4%)   0.0002 (  0.8%)  LCSSA Verifier #2
+   0.0000 (  0.2%)   0.0001 (  1.3%)   0.0002 (  0.6%)   0.0002 (  0.8%)  Natural Loop Information #7
+   0.0001 (  0.4%)   0.0001 (  1.5%)   0.0002 (  0.8%)   0.0002 (  0.8%)  Deduce function attributes
+   0.0002 (  1.1%)   0.0000 (  0.0%)   0.0002 (  0.7%)   0.0002 (  0.7%)  Scalar Evolution Analysis #4
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0002 (  0.7%)  Memory Dependence Analysis
+   0.0001 (  0.7%)   0.0001 (  0.6%)   0.0002 (  0.6%)   0.0002 (  0.7%)  Natural Loop Information #5
+   0.0001 (  0.3%)   0.0000 (  0.4%)   0.0001 (  0.4%)   0.0002 (  0.6%)  Dominator Tree Construction #12
+   0.0001 (  0.8%)   0.0000 (  0.4%)   0.0002 (  0.6%)   0.0002 (  0.6%)  Scalar Evolution Analysis #7
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0002 (  0.6%)  Basic Alias Analysis (stateless AA impl) #4
+   0.0000 (  0.0%)   0.0002 (  1.7%)   0.0002 (  0.6%)   0.0002 (  0.6%)  SROA #2
+   0.0000 (  0.0%)   0.0002 (  1.6%)   0.0002 (  0.6%)   0.0002 (  0.6%)  Scalar Evolution Analysis #3
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0002 (  0.6%)  Lazy Block Frequency Analysis #4
+   0.0002 (  0.9%)   0.0000 (  0.0%)   0.0002 (  0.6%)   0.0002 (  0.6%)  Scalar Evolution Analysis #5
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0002 (  0.6%)  Canonicalize natural loops #4
+   0.0000 (  0.0%)   0.0001 (  1.4%)   0.0001 (  0.5%)   0.0002 (  0.6%)  Float to int
+   0.0002 (  0.9%)   0.0000 (  0.0%)   0.0002 (  0.6%)   0.0001 (  0.6%)  Scalar Evolution Analysis #6
+   0.0001 (  0.6%)   0.0001 (  0.7%)   0.0002 (  0.6%)   0.0001 (  0.6%)  Branch Probability Analysis #2
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Optimization Remark Emitter #8
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Module Verifier #2
+   0.0001 (  0.4%)   0.0001 (  0.8%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Globals Alias Analysis
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Combine redundant instructions #3
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Lazy Branch Probability Analysis #8
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Lazy Block Frequency Analysis #8
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Combine redundant instructions #8
+   0.0001 (  0.4%)   0.0001 (  0.7%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Inliner for always_inline functions
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.5%)  Lazy Branch Probability Analysis #9
+   0.0000 (  0.0%)   0.0001 (  1.4%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Reassociate expressions
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Demanded bits analysis #2
+   0.0001 (  0.4%)   0.0001 (  0.6%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Remove unused exception handling info
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Basic Alias Analysis (stateless AA impl) #5
+   0.0001 (  0.7%)   0.0000 (  0.1%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Dominator Tree Construction
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Module Verifier
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Lazy Branch Probability Analysis #12
+   0.0001 (  0.4%)   0.0000 (  0.4%)   0.0001 (  0.4%)   0.0001 (  0.5%)  Function Alias Analysis Results #5
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Simplify the CFG #7
+   0.0000 (  0.0%)   0.0001 (  1.2%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Scalar Evolution Analysis #2
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.5%)  Memory SSA #3
+   0.0000 (  0.0%)   0.0001 (  1.3%)   0.0001 (  0.5%)   0.0001 (  0.4%)  Remove redundant instructions
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Basic Alias Analysis (stateless AA impl) #11
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.4%)  Function Alias Analysis Results #9
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Combine redundant instructions #7
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lazy Branch Probability Analysis #11
+   0.0000 (  0.2%)   0.0001 (  0.8%)   0.0001 (  0.5%)   0.0001 (  0.4%)  Dominator Tree Construction #11
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Optimization Remark Emitter #12
+   0.0001 (  0.3%)   0.0001 (  0.6%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Natural Loop Information #8
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Function Alias Analysis Results #12
+   0.0000 (  0.0%)   0.0001 (  1.2%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Simplify the CFG #4
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Global Variable Optimizer
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Loop Distribution
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Loop Access Analysis #2
+   0.0001 (  0.7%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Canonicalize natural loops #5
+   0.0001 (  0.3%)   0.0001 (  0.6%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lazy Branch Probability Analysis #13
+   0.0000 (  0.0%)   0.0001 (  1.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lazy Branch Probability Analysis #14
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Canonicalize natural loops #6
+   0.0001 (  0.3%)   0.0001 (  0.6%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Warn about non-applied transformations
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Loop-Closed SSA Form Pass #4
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  LCSSA Verifier #4
+   0.0000 (  0.0%)   0.0001 (  1.2%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Alignment from assumptions
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lazy Block Frequency Analysis #11
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Loop-Closed SSA Form Pass #5
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Optimization Remark Emitter #11
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Memory SSA #2
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.4%)  Function Alias Analysis Results #10
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Loop Access Analysis #3
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lazy Block Frequency Analysis #12
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Optimization Remark Emitter #10
+   0.0001 (  0.3%)   0.0001 (  0.6%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lazy Block Frequency Analysis #13
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  LCSSA Verifier #5
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.4%)  Basic Alias Analysis (stateless AA impl)
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.4%)  Dominator Tree Construction #10
+   0.0001 (  0.8%)   0.0000 (  0.0%)   0.0001 (  0.5%)   0.0001 (  0.4%)  A No-Op Barrier Pass
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Block Frequency Analysis
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Called Value Propagation
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Global Variable Optimizer #2
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lower constant intrinsics
+   0.0001 (  0.5%)   0.0000 (  0.3%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Globals Alias Analysis #2
+   0.0000 (  0.0%)   0.0001 (  1.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Natural Loop Information #9
+   0.0001 (  0.5%)   0.0000 (  0.2%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Loop Load Elimination
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.4%)  Instrument function entry/exit with calls to e.g. mcount() (pre inlining)
+   0.0000 (  0.0%)   0.0001 (  1.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Early CSE w/ MemorySSA
+   0.0001 (  0.3%)   0.0000 (  0.4%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Dominator Tree Construction #8
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.4%)  Hoist/decompose integer division and remainder
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Dead Global Elimination
+   0.0000 (  0.0%)   0.0001 (  1.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Combine redundant instructions #4
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Optimization Remark Emitter #13
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Lazy Block Frequency Analysis #10
+   0.0000 (  0.2%)   0.0001 (  0.6%)   0.0001 (  0.4%)   0.0001 (  0.4%)  CallGraph Construction
+   0.0000 (  0.0%)   0.0001 (  1.0%)   0.0001 (  0.4%)   0.0001 (  0.4%)  Function Alias Analysis Results
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.4%)  Basic Alias Analysis (stateless AA impl) #10
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.4%)  Simplify the CFG #6
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Loop-Closed SSA Form Pass #2
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Sparse Conditional Constant Propagation
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Deduce function attributes in RPO
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Block Frequency Analysis #14
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Optimization Remark Emitter #9
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Branch Probability Analysis #3
+   0.0001 (  0.4%)   0.0000 (  0.1%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Function Alias Analysis Results #4
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Branch Probability Analysis #10
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Bit-Tracking Dead Code Elimination
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  PGOMemOPSize
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Basic Alias Analysis (stateless AA impl) #9
+   0.0001 (  0.6%)   0.0000 (  0.0%)   0.0001 (  0.4%)   0.0001 (  0.3%)  Optimization Remark Emitter #4
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  CallGraph Construction #2
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Branch Probability Analysis #7
+   0.0000 (  0.3%)   0.0001 (  0.5%)   0.0001 (  0.4%)   0.0001 (  0.3%)  Canonicalize natural loops #2
+   0.0000 (  0.2%)   0.0000 (  0.5%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Force set function attributes
+   0.0001 (  0.4%)   0.0000 (  0.2%)   0.0001 (  0.3%)   0.0001 (  0.3%)  CallGraph Construction #3
+   0.0000 (  0.2%)   0.0000 (  0.5%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Post-Dominator Tree Construction
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Combine redundant instructions
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Function Alias Analysis Results #8
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Optimization Remark Emitter #7
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Canonicalize natural loops #3
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Function Alias Analysis Results #6
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Basic Alias Analysis (stateless AA impl) #8
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Block Frequency Analysis #7
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Basic Alias Analysis (stateless AA impl) #6
+   0.0001 (  0.4%)   0.0000 (  0.1%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Canonicalize natural loops
+   0.0000 (  0.0%)   0.0001 (  0.9%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Branch Probability Analysis #5
+   0.0001 (  0.4%)   0.0000 (  0.1%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Natural Loop Information #4
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Optimization Remark Emitter #5
+   0.0001 (  0.4%)   0.0000 (  0.2%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lower 'expect' Intrinsics
+   0.0000 (  0.0%)   0.0001 (  1.1%)   0.0001 (  0.4%)   0.0001 (  0.3%)  Loop Access Analysis
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Phi Values Analysis
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Block Frequency Analysis #5
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Block Frequency Analysis #4
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Loop-Closed SSA Form Pass #3
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Combine redundant instructions #6
+   0.0001 (  0.5%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Loop-Closed SSA Form Pass
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Optimization Remark Emitter #3
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Dominator Tree Construction #5
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Demanded bits analysis
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Function Alias Analysis Results #11
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Branch Probability Analysis
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  LCSSA Verifier #3
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Branch Probability Analysis #3
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Basic Alias Analysis (stateless AA impl) #7
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Function Alias Analysis Results #7
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Assumption Cache Tracker
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Simplify the CFG #2
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Dominator Tree Construction #9
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Combine redundant instructions #5
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Type-Based Alias Analysis
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Scoped NoAlias Alias Analysis
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Infer set function attributes
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Block Frequency Analysis #3
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Scalar Evolution Analysis #8
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Combine redundant instructions #2
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Optimization Remark Emitter #2
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Function Alias Analysis Results #13
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Natural Loop Information #3
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Natural Loop Information #2
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Dominator Tree Construction #6
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  LCSSA Verifier #6
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Function Alias Analysis Results #3
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Natural Loop Information #6
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Branch Probability Analysis #2
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Memory SSA
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Loop-Closed SSA Form Pass #6
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Basic Alias Analysis (stateless AA impl) #12
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Conditionally eliminate dead library calls
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Basic Alias Analysis (stateless AA impl) #3
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.3%)  Dominator Tree Construction #3
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Dominator Tree Construction #13
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Block Frequency Analysis #3
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.3%)  Dead Argument Elimination
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.3%)  Simplify the CFG #3
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Lazy Block Frequency Analysis #2
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.3%)  Strip Unused Function Prototypes
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.3%)  Canonicalize natural loops #7
+   0.0000 (  0.0%)   0.0001 (  0.8%)   0.0001 (  0.3%)   0.0001 (  0.3%)  Promote Memory to Register
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.2%)   0.0001 (  0.3%)  Lazy Branch Probability Analysis #6
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Basic Alias Analysis (stateless AA impl) #2
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Deduce and propagate attributes
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Function Alias Analysis Results #2
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Optimization Remark Emitter #6
+   0.0001 (  0.4%)   0.0000 (  0.0%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Lazy Block Frequency Analysis #6
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Dominator Tree Construction #4
+   0.0000 (  0.0%)   0.0001 (  0.7%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Natural Loop Information
+   0.0000 (  0.0%)   0.0001 (  0.6%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Optimization Remark Emitter
+   0.0000 (  0.0%)   0.0001 (  0.6%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Lazy Block Frequency Analysis
+   0.0000 (  0.0%)   0.0001 (  0.6%)   0.0001 (  0.2%)   0.0001 (  0.2%)  Lazy Branch Probability Analysis
+   0.0000 (  0.0%)   0.0000 (  0.4%)   0.0000 (  0.1%)   0.0000 (  0.1%)  Dominator Tree Construction #2
+   0.0000 (  0.0%)   0.0000 (  0.4%)   0.0000 (  0.1%)   0.0000 (  0.1%)  Profile summary info
+   0.0000 (  0.2%)   0.0000 (  0.0%)   0.0000 (  0.1%)   0.0000 (  0.1%)  Target Library Information
+   0.0000 (  0.2%)   0.0000 (  0.0%)   0.0000 (  0.1%)   0.0000 (  0.1%)  Target Transform Information
+   0.0173 (100.0%)   0.0098 (100.0%)   0.0271 (100.0%)   0.0264 (100.0%)  Total
+
+===-------------------------------------------------------------------------===
+                                LLVM IR Parsing
+===-------------------------------------------------------------------------===
+  Total Execution Time: 0.0010 seconds (0.0010 wall clock)
+
+   ---User Time---   --System Time--   --User+System--   ---Wall Time---  --- Name ---
+   0.0007 (100.0%)   0.0003 (100.0%)   0.0010 (100.0%)   0.0010 (100.0%)  Parse IR
+   0.0007 (100.0%)   0.0003 (100.0%)   0.0010 (100.0%)   0.0010 (100.0%)  Total
+

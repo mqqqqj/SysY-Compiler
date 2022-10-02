@@ -1,0 +1,38 @@
+33 ccp "Constants propagated" "main" 4
+33 ccp "Statements deleted" "main" 8
+38 fre "RPO blocks" "main" 4
+38 fre "RPO num lattice == 12" "main" 1
+38 fre "RPO iterations == 10" "main" 1
+38 fre "RPO num values == 7" "main" 1
+38 fre "RPO blocks visited" "main" 4
+38 fre "RPO max_rpo iterations == 1" "main" 1
+38 fre "RPO blocks executable" "main" 4
+38 fre "RPO block visited times == 1" "main" 4
+38 fre "RPO num avail == 7" "main" 1
+42 cddce "PHI nodes deleted" "main" 1
+42 cddce "Statements deleted" "main" 4
+51 release_ssa "unused VAR_DECLs removed" "main" 3
+51 release_ssa "SSA names released" "main" 14
+51 release_ssa "SSA name holes removed" "main" 14
+104 fre "RPO blocks" "main" 4
+104 fre "RPO iterations == 10" "main" 1
+104 fre "RPO blocks visited" "main" 4
+104 fre "RPO max_rpo iterations == 1" "main" 1
+104 fre "RPO blocks executable" "main" 4
+104 fre "RPO block visited times == 1" "main" 4
+104 fre "RPO num values == 3" "main" 1
+104 fre "RPO num avail == 3" "main" 1
+104 fre "RPO num lattice == 6" "main" 1
+117 ch "RPO blocks" "main" 2
+117 ch "RPO iterations == 10" "main" 1
+117 ch "Incremental SSA update" "main" 1
+117 ch "RPO blocks visited" "main" 2
+117 ch "RPO max_rpo iterations == 0" "main" 1
+117 ch "RPO blocks executable" "main" 2
+117 ch "RPO block visited times == 1" "main" 2
+117 ch "RPO num avail == 0" "main" 1
+117 ch "RPO num lattice == 2" "main" 1
+117 ch "Eliminated" "main" 1
+117 ch "RPO num values == 0" "main" 1
+198 dce "Statements deleted" "main" 2
+269 combine "two-insn combine" "main" 1

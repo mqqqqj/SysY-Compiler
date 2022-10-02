@@ -1,0 +1,28 @@
+
+;; Function main (null)
+;; enabled by -tree-original
+
+
+{
+  int arr[0:0, 109];
+  int tmp = 0;
+
+    int arr[0:0, 109];
+    int tmp = 0;
+  {
+    int i = 0;
+
+        int i = 0;
+    goto <D.1917>;
+    <D.1916>:;
+    tmp = tmp + i;
+    arr[i] = tmp * i;
+    i++ ;
+    <D.1917>:;
+    if (i <= 109) goto <D.1916>; else goto <D.1918>;
+    <D.1918>:;
+  }
+  return 0;
+}
+return 0;
+

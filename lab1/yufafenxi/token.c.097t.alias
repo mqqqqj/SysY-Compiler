@@ -1,0 +1,184 @@
+
+;; Function main (main, funcdef_no=0, decl_uid=1911, cgraph_uid=1, symbol_order=1) (executed once)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+saved_stack.1_5 = NONLOCAL
+i_7 = i_1
+i_7 = &NONLOCAL
+i_1 = &NULL
+i_1 = i_7
+ESCAPED = saved_stack.1_5
+ESCAPED = &NULL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+
+
+// The constraint graph before var-substitution in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING"[label="ANYTHING = { 2 }"];
+"STRING";
+"ESCAPED"[label="ESCAPED = { 1 }"];
+"NONLOCAL"[label="NONLOCAL = { 4 5 }"];
+"STOREDANYTHING";
+"INTEGER"[label="INTEGER = { 2 }"];
+"__builtin_stack_save";
+"__builtin_stack_restore";
+"saved_stack.1_5";
+"i_7"[label="i_7 = { 1 5 }"];
+"*NULL";
+"*ANYTHING";
+"*STRING";
+"*STOREDANYTHING";
+"*INTEGER";
+"*__builtin_stack_save";
+"*__builtin_stack_restore";
+"*i_7";
+"*i_1";
+
+  // Edges in the constraint graph:
+"NONLOCAL" -> "ESCAPED";
+"saved_stack.1_5" -> "ESCAPED";
+"ESCAPED" -> "ESCAPED";
+"NONLOCAL" -> "saved_stack.1_5";
+"i_7" -> "i_7";
+"i_7" -> "i_7";
+}
+
+
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+
+
+// The constraint graph before solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = NONLOCAL\l"];
+"STOREDANYTHING";
+"INTEGER";
+"__builtin_stack_save";
+"__builtin_stack_restore";
+"saved_stack.1_5";
+"i_7";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+"saved_stack.1_5" -> "ESCAPED";
+}
+
+
+Solving graph
+
+
+// The constraint graph after solve-graph in dot format:
+strict digraph {
+  node [
+    shape = box
+  ]
+  edge [
+    fontsize = "12"
+  ]
+
+  // List of nodes and complex constraints in the constraint graph:
+"NULL";
+"ANYTHING";
+"STRING";
+"ESCAPED" [label="\N\nESCAPED = ESCAPED + UNKNOWN\lESCAPED = *ESCAPED\l*ESCAPED = saved_stack.1_5\l"];
+"STOREDANYTHING";
+"INTEGER";
+"__builtin_stack_save";
+"__builtin_stack_restore";
+"saved_stack.1_5";
+"i_7";
+
+  // Edges in the constraint graph:
+"STOREDANYTHING" -> "ESCAPED";
+"saved_stack.1_5" -> "ESCAPED";
+}
+
+
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as saved_stack.1_5
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__builtin_stack_save = { }
+__builtin_stack_restore = { }
+saved_stack.1_5 = { ESCAPED NONLOCAL }
+i_7 = { NULL NONLOCAL }
+i_1 = { NULL NONLOCAL } same as i_7
+
+
+Alias information for main
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
+
+Flow-insensitive points-to information
+
+saved_stack.1_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+main ()
+{
+  int i;
+  void * saved_stack.1_5;
+
+  <bb 2> [local count: 10737418]:
+  saved_stack.1_5 = __builtin_stack_save ();
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [local count: 1063004407]:
+  i_7 = i_1 + 1;
+
+  <bb 4> [local count: 1073741824]:
+  # i_1 = PHI <0(2), i_7(3)>
+  if (i_1 <= 109)
+    goto <bb 3>; [99.00%]
+  else
+    goto <bb 5>; [1.00%]
+
+  <bb 5> [local count: 10737418]:
+  __builtin_stack_restore (saved_stack.1_5);
+  return 0;
+
+}
+
+

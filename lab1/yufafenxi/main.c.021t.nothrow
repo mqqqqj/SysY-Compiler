@@ -1,0 +1,41 @@
+
+;; Function main (main, funcdef_no=0, decl_uid=1911, cgraph_uid=1, symbol_order=1)
+
+Function found to be nothrow: main
+main ()
+{
+  int n;
+  int t;
+  int i;
+  int b;
+  int a;
+  int _8;
+
+  <bb 2> :
+  a_4 = 0;
+  b_5 = 1;
+  i_6 = 1;
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  t_10 = b_2;
+  b_11 = a_1 + b_2;
+  a_12 = t_10;
+  i_13 = i_3 + 1;
+
+  <bb 4> :
+  # a_1 = PHI <a_4(2), a_12(3)>
+  # b_2 = PHI <b_5(2), b_11(3)>
+  # i_3 = PHI <i_6(2), i_13(3)>
+  if (i_3 < n_7(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _8 = 0;
+  return _8;
+
+}
+
+

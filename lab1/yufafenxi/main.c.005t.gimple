@@ -1,0 +1,31 @@
+main ()
+{
+  int D.1922;
+
+  {
+    int a;
+    int b;
+    int i;
+    int t;
+    int n;
+
+    a = 0;
+    b = 1;
+    i = 1;
+    goto <D.1919>;
+    <D.1918>:
+    t = b;
+    b = a + b;
+    a = t;
+    i = i + 1;
+    <D.1919>:
+    if (i < n) goto <D.1918>; else goto <D.1920>;
+    <D.1920>:
+    D.1922 = 0;
+    return D.1922;
+  }
+  D.1922 = 0;
+  return D.1922;
+}
+
+

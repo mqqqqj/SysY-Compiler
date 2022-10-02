@@ -1,0 +1,12 @@
+
+;; Function main (main, funcdef_no=0, decl_uid=1911, cgraph_uid=1, symbol_order=1) (executed once)
+
+Released 12 names, 600.00%, removed 12 holes
+main ()
+{
+  <bb 2> [local count: 1073741824]:
+  return 0;
+
+}
+
+
